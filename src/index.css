@@ -1,14 +1,18 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --main-background-color: #334464;
+  --primary-color: #7234fa;
+  --header-background-color: #222222;
+  --main-font-color: #312f36;
+  --other-light: #ddd8ce;
+}
+body {
+  padding: 10px;
+  background-color: var(--main-background-color);
+}
+body h1 {
+  font-family: "Kalnia", serif;
+  color: var(--primary-color);
+}
+body:not(h1) {
+  font-family: "Montserrat", sans-serif;
 }

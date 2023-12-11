@@ -1,0 +1,31 @@
+.header-nav {
+  background-color: var(--header-background-color);
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.header-nav > * {
+  display: inline-block;
+  margin: 10px 0;
+}
+.header-nav a,
+.logo {
+  color: var(--other-light);
+  text-decoration: none;
+  padding: 0 10px;
+  transition: all 500ms;
+}
+
+.header-nav a:hover {
+  color: var(--primary-color);
+}
+.logo {
+  filter: invert(97%) sepia(9%) saturate(390%) hue-rotate(325deg)
+    brightness(94%) contrast(83%);
+}
+.logo:hover {
+  filter: invert(20%) sepia(88%) saturate(3958%) hue-rotate(255deg)
+    brightness(99%) contrast(98%);
+}
