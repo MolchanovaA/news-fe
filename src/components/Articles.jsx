@@ -10,6 +10,7 @@ const Articles = () => {
   useEffect(() => {
     getArticles().then((data) => {
       setArticles(data);
+      console.log(data);
       setIsLoading(false);
     });
   }, []);
@@ -27,6 +28,7 @@ const Articles = () => {
           return (
             <li key={article.id}>
               <h2>{article.title}</h2>
+              <p>{article.votes}</p>
             </li>
           );
         })}
