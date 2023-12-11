@@ -1,0 +1,19 @@
+.all-articles {
+  padding: 10px;
+}
+.all-articles > * {
+  margin: 10px 0;
+}
+.all-articles li {
+  background-color: var(--other-light);
+  margin: 20px 0;
+  padding: 10px;
+  font-weight: bold;
+  transition: all 500ms;
+}
+
+.all-articles li:hover {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--other-light);
+}
