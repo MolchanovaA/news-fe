@@ -3,16 +3,37 @@
   --primary-color: #7234fa;
   --header-background-color: #222222;
   --main-font-color: #312f36;
-  --other-light: #ddd8ce;
+  --other-light: #fffdfa;
 }
 body {
   padding: 10px;
   background-color: var(--main-background-color);
 }
-body h1 {
+body h1,
+body h2 {
   font-family: "Kalnia", serif;
-  color: var(--primary-color);
+  color: var(--other-light);
+  font-weight: bolder;
+  text-align: center;
+  font-size: 40px;
+}
+body h2 {
+  color: var(--header-background-color);
+  font-size: 30px;
 }
 body:not(h1) {
   font-family: "Montserrat", sans-serif;
+}
+
+section p {
+  color: var(--other-light);
+}
+.box {
+  background-color: var(--header-background-color);
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--other-light);
 }
