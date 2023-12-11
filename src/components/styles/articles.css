@@ -10,10 +10,19 @@
   padding: 10px;
   font-weight: bold;
   transition: all 500ms;
+  position: relative;
 }
 
 .all-articles li:hover {
   cursor: pointer;
   background-color: var(--primary-color);
   color: var(--other-light);
+}
+
+.singleArticle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

@@ -1,0 +1,37 @@
+.article > * {
+  padding: 10px;
+  background-color: var(--other-light);
+}
+
+.article img {
+  width: 300px;
+  height: auto;
+  float: left;
+  clear: both;
+}
+
+.article p.article-body {
+  padding: 10px;
+  color: var(--main-font-color);
+}
+
+.article-footer-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-summary {
+  color: var(--other-light);
+  background-color: var(--header-background-color);
+  opacity: 0.5;
+}
+
+.article-interactive > div {
+  transition: all 500ms;
+}
+
+.article-interactive > div:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
