@@ -1,17 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 
-import WebTemplate from "../WebTemplate";
-import TemplateBody from "../TemplateBody";
 import Articles from "../Articles";
+import SingleArticle from "../SingleArticle";
+import Home from "../Home";
 
 const RoutesComponent = () => {
   return (
-    <Routes>
-      <Route path="/" element={<WebTemplate />}>
-        <Route path="api" element={<TemplateBody />} />
-        <Route path="api/articles" element={<Articles />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
+      </Routes>
+    </>
   );
 };
 

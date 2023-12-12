@@ -1,11 +1,17 @@
 import { BrowserRouter } from "react-router-dom";
 import RoutesComponent from "./components/routes/RutesComponent";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <RoutesComponent />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header />
+        <RoutesComponent />
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
 

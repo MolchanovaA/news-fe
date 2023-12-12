@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import { getArticles } from "../utils/apiRequests";
 
 import "./styles/articles.css";
@@ -10,7 +10,6 @@ const Articles = () => {
   useEffect(() => {
     getArticles().then((data) => {
       setArticles(data);
-      console.log(data);
       setIsLoading(false);
     });
   }, []);
@@ -26,9 +25,13 @@ const Articles = () => {
       <ul>
         {articles.map((article) => {
           return (
-            <li key={article.id}>
+            <li key={article.article_id}>
               <h2>{article.title}</h2>
-              <p>{article.votes}</p>
+              <p className="votes">{article.votes}</p>
+              <Link
+                className="singleArticle"
+                to={`/articles/${article.article_id}`}
+              ></Link>
             </li>
           );
         })}

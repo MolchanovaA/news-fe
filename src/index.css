@@ -4,6 +4,7 @@
   --header-background-color: #222222;
   --main-font-color: #312f36;
   --other-light: #fffdfa;
+  --comments: #312f3686;
 }
 body {
   padding: 10px;
@@ -24,8 +25,11 @@ body h2 {
 body:not(h1) {
   font-family: "Montserrat", sans-serif;
 }
-
-section p {
+.main-section {
+  padding: 10px;
+  margin: 100px 0;
+}
+section p:not(.votes) {
   color: var(--other-light);
 }
 .box {
