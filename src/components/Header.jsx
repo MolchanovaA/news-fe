@@ -10,7 +10,7 @@ const Header = () => {
         <img src={logo} alt="news logo" className="logo" />
       </Link>
       <Link>Topics</Link>
-      <Link to="/api/articles">All Articles</Link>
+      <Link to="/articles">All Articles</Link>
       <Link>Random Article</Link>
     </nav>
   );

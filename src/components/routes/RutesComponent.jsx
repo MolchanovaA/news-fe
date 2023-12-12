@@ -9,8 +9,8 @@ const RoutesComponent = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="api/articles" element={<Articles />} />
-        <Route path="api/articles/:article_id" element={<SingleArticle />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
       </Routes>
     </>
   );

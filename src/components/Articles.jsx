@@ -30,7 +30,7 @@ const Articles = () => {
               <p className="votes">{article.votes}</p>
               <Link
                 className="singleArticle"
-                to={`/api/articles/${article.article_id}`}
+                to={`/articles/${article.article_id}`}
               ></Link>
             </li>
           );
