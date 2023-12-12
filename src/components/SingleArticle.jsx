@@ -21,7 +21,7 @@ const SingleArticle = () => {
   }, []);
   if (isLoading)
     return (
-      <section className="all-articles"> .. Articles are loading .. </section>
+      <section className="all-articles"> .. Article is loading .. </section>
     );
   return (
     <section className="article">
