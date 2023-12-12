@@ -5,7 +5,7 @@ import "./styles/header.css";
 const Header = () => {
   return (
     <nav className="header-nav box">
-      <Link to="/api">
+      <Link to="/">
         {" "}
         <img src={logo} alt="news logo" className="logo" />
       </Link>

@@ -25,7 +25,10 @@ body h2 {
 body:not(h1) {
   font-family: "Montserrat", sans-serif;
 }
-
+.main-section {
+  padding: 10px;
+  margin: 100px 0;
+}
 section p:not(.votes) {
   color: var(--other-light);
 }
