@@ -26,8 +26,10 @@ const Comments = ({ article_id }) => {
         {commentsToArticle.map((comment) => {
           return (
             <li key={comment.comment_id} className="comment">
-              {comment.body}
-              <div>{comment.votes}</div>
+              <p className="section-comments-body"> {comment.body} </p>
+              <div className="section-comments-votes">
+                <span>{comment.votes}</span>
+              </div>
             </li>
           );
         })}

@@ -25,3 +25,12 @@
   background-color: var(--primary-color);
   color: var(--other-light);
 }
+
+.section-comments-votes {
+  text-align: end;
+  margin: 10px;
+}
+
+.section-comments p.section-comments-body {
+  color: var(--main-background-color);
+}
