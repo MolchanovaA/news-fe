@@ -7,16 +7,15 @@ import "./styles/singleArticle.css";
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [date, setDate] = useState("");
 
   const params = useParams();
   const { article_id } = params;
 
   useEffect(() => {
     getArticleById(article_id).then((data) => {
-      setArticle(data);
       const dateCreated = data.created_at.split("T");
-      setDate(dateCreated[0]);
+      data.created_at = dateCreated[0];
+      setArticle(data);
     });
     setIsLoading(false);
   }, []);
@@ -34,7 +33,7 @@ const SingleArticle = () => {
       <div className="article-summary article-footer-box">
         <div>topic: {article.topic}</div>
         <div>{article.author}</div>
-        <div>{date}</div>
+        <div>{article.created_at}</div>
       </div>
       <div className="article-interactive article-footer-box">
         <div>votes : {article.votes}</div>

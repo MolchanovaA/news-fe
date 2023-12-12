@@ -1,5 +1,7 @@
 .article > * {
   padding: 10px;
+}
+.article {
   background-color: var(--other-light);
 }
 
@@ -7,6 +9,9 @@
   width: 300px;
   height: auto;
   float: left;
+}
+
+.article-footer-box {
   clear: both;
 }
 
