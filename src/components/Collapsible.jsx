@@ -1,12 +1,27 @@
 import { useState } from "react";
 
 const Collapsible = ({ children }) => {
-  const [isHidden, setIsHidden] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isCreate, setIsCreate] = useState(false);
 
-  const setHidden = () => {
-    setIsHidden(!isHidden);
+  const setVisible = (e) => {
+    if (e.target.id === "comments" || e.target.id === "hide") {
+      setIsVisible(!isVisible);
+    } else if (e.target.id === "createComment") {
+      if (isCreate) {
+        e.target.innerText = "Show Form";
+      } else {
+        e.target.innerText = "Hide Form";
+      }
+
+      setIsCreate(!isCreate);
+    }
   };
-  return <div onClick={setHidden}>{isHidden ? children[0] : children}</div>;
+  return (
+    <div onClick={setVisible}>
+      {isVisible || isCreate ? children : children[0]}
+    </div>
+  );
 };
 
 export default Collapsible;

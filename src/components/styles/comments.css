@@ -13,14 +13,14 @@
   background-color: var(--other-light);
 }
 
-.hide {
+.button {
   margin: 10px;
   padding: 10px;
   border: none;
   transition: all 500ms;
 }
 
-.hide:hover {
+.button:hover {
   cursor: pointer;
   background-color: var(--primary-color);
   color: var(--other-light);
@@ -31,6 +31,38 @@
   margin: 10px;
 }
 
+.section-comments-author {
+  text-align: start;
+  margin: 10px;
+}
+
 .section-comments p.section-comments-body {
+  margin-left: 40px;
   color: var(--main-background-color);
+}
+
+form.new-comment {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  background-color: aliceblue;
+  border: 1px solid var(--main-background-color);
+}
+form.new-comment label {
+  display: flex;
+  align-items: self-start;
+}
+
+form.new-comment textarea {
+  padding: 5px;
+  margin: 10px;
+}
+
+form.new-comment textarea {
+  height: 100px;
+}
+
+form.new-comment .button {
+  width: 150px;
 }
