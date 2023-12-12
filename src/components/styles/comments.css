@@ -1,0 +1,36 @@
+.section-comments {
+  margin-top: 40px;
+  padding: 10px;
+  background-color: var(--main-background-color);
+}
+.section-comments h2 {
+  color: var(--other-light);
+}
+
+.comment {
+  margin: 10px;
+  padding: 10px 5px;
+  background-color: var(--other-light);
+}
+
+.hide {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  transition: all 500ms;
+}
+
+.hide:hover {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--other-light);
+}
+
+.section-comments-votes {
+  text-align: end;
+  margin: 10px;
+}
+
+.section-comments p.section-comments-body {
+  color: var(--main-background-color);
+}
