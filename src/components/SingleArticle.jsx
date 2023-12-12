@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../utils/apiRequests";
 
+import Collapsible from "./Collapsible";
+import Comments from "./Comments";
+
 import "./styles/singleArticle.css";
 
 const SingleArticle = () => {
@@ -26,19 +29,20 @@ const SingleArticle = () => {
   return (
     <section className="article">
       <h2>{article.title}</h2>
-
       <img src={article.article_img_url} alt={article.title} />
       <p className="article-body">{article.body}</p>
-
       <div className="article-summary article-footer-box">
         <div>topic: {article.topic}</div>
         <div>{article.author}</div>
         <div>{article.created_at}</div>
       </div>
-      <div className="article-interactive article-footer-box">
-        <div>votes : {article.votes}</div>
-        <div>Comments: {article.comment_count}</div>
-      </div>
+      <Collapsible>
+        <div className="article-interactive article-footer-box">
+          <div className="button">Votes: {article.votes}</div>
+          <div className="button">Comments: {article.comment_count}</div>
+        </div>
+        <Comments article_id={article_id} />
+      </Collapsible>
     </section>
   );
 };
