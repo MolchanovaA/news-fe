@@ -4,6 +4,10 @@
 .all-articles > * {
   margin: 10px 0;
 }
+.all-articles h2 {
+  text-align: left;
+  padding-right: 70px;
+}
 .all-articles li {
   background-color: var(--other-light);
   margin: 20px 0;
@@ -11,6 +15,40 @@
   font-weight: bold;
   transition: all 500ms;
   position: relative;
+}
+p.votes-box {
+  width: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  z-index: 4;
+}
+
+p.votes-box span {
+  color: var(--main-background-color);
+}
+.rating {
+  transition: all 500ms;
+}
+
+.add,
+.votes,
+.minus {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.add:hover {
+  color: rgb(103, 244, 103);
+  transform: scale(1.5);
+}
+
+.minus:hover {
+  color: rgb(235, 127, 127);
+  transform: scale(1.5);
 }
 
 .all-articles li:hover {
