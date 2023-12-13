@@ -14,17 +14,17 @@
   padding: 10px;
   font-weight: bold;
   transition: all 500ms;
-  position: relative;
+  /* position: relative; */
 }
 p.votes-box {
   width: 50px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   right: 30px;
-  z-index: 4;
+  z-index: 4; */
 }
 
 p.votes-box span {
@@ -41,14 +41,14 @@ p.votes-box span {
   font-size: 20px;
 }
 
-.add:hover {
+.add1:hover {
   color: rgb(103, 244, 103);
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
 }
 
-.minus:hover {
+.minus1:hover {
   color: rgb(235, 127, 127);
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
 }
 
 .all-articles li:hover {

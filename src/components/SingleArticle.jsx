@@ -22,6 +22,12 @@ const SingleArticle = () => {
     });
     setIsLoading(false);
   }, []);
+
+  const votingHandling = (e) => {
+    // setUpdateVote(e.target.innerText);
+    // setClick(!click);
+  };
+
   if (isLoading)
     return (
       <section className="all-articles"> .. Article is loading .. </section>
@@ -38,10 +44,18 @@ const SingleArticle = () => {
       </div>
       <Collapsible>
         <div className="article-interactive article-footer-box">
-          <div className="button">
-            Votes:
-            {article.votes}
-          </div>
+          {/* <div className="button"> */}
+          <p className="votes-box">
+            <span className="rating add" onClick={votingHandling}>
+              +
+            </span>
+            <span className=" votes">{article.votes}</span>
+
+            <span className="rating minus" onClick={votingHandling}>
+              -
+            </span>
+          </p>
+          {/* </div> */}
           <div className="button">Comments: {article.comment_count}</div>
         </div>
         <Comments article_id={article_id} />
