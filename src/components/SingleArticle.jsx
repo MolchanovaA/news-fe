@@ -10,7 +10,6 @@ import "./styles/singleArticle.css";
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [updateVote, setUpdateVote] = useState("");
   const [currentVote, setCurrentVote] = useState(article.votes);
 
   const [response, setResponse] = useState("");
@@ -18,12 +17,27 @@ const SingleArticle = () => {
   const params = useParams();
   const { article_id } = params;
 
-  const [click, setClick] = useState(false);
   const [isVoted, setIsVoted] = useState(false);
 
   const votingHandling = (e) => {
-    setUpdateVote(e.target.innerText);
-    setClick(!click);
+    let voting = 0;
+    let votesOnPage = article.votes;
+    if (e.target.innerText === "+" && !isVoted) {
+      voting = 1;
+      votesOnPage++;
+      setIsVoted(true);
+    } else if (e.target.innerText === "-" && !isVoted) {
+      voting = -1;
+      votesOnPage--;
+      setIsVoted(true);
+    }
+    if (!isVoted) {
+      setResponse("Thank you for voting");
+      setCurrentVote(votesOnPage);
+      voteOnArticle(article.article_id, voting).catch((err) => {
+        setResponse("ERROR");
+      });
+    }
   };
 
   useEffect(() => {
@@ -31,31 +45,11 @@ const SingleArticle = () => {
       const dateCreated = data.created_at.split("T");
       data.created_at = dateCreated[0];
       setArticle(data);
+      setCurrentVote(data.votes);
     });
+
     setIsLoading(false);
-  }, [currentVote]);
-
-  useEffect(() => {
-    let voting = 0;
-    if (updateVote === "+" && !isVoted) {
-      voting = 1;
-      setIsVoted(true);
-    } else if (updateVote === "-" && !isVoted) {
-      voting = -1;
-      setIsVoted(true);
-    }
-
-    if (article.article_id) {
-      setResponse("Thank you for voting");
-      voteOnArticle(article.article_id, voting)
-        .then(({ votes }) => {
-          setCurrentVote(votes);
-        })
-        .catch((err) => {
-          setResponse("ERROR");
-        });
-    }
-  }, [click]);
+  }, []);
 
   if (isLoading)
     return (
@@ -78,7 +72,7 @@ const SingleArticle = () => {
             <span className="rating add" onClick={votingHandling}>
               +
             </span>
-            <span className="votes">{article.votes}</span>
+            <span className="votes">{currentVote}</span>
 
             <span className="rating minus" onClick={votingHandling}>
               -
