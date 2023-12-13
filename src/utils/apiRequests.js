@@ -17,3 +17,7 @@ export const getCommentsByArticleId = (id) => {
     .get(`/articles/${id}/comments`)
     .then(({ data }) => data.comments);
 };
+
+export const postComment = (id, body) => {
+  return newsApi.post(`/articles/${id}/comments`, body);
+};

@@ -42,7 +42,9 @@ const SingleArticle = () => {
             Votes:
             {article.votes}
           </div>
-          <div className="button">Comments: {article.comment_count}</div>
+          <div className="button" id="comments">
+            Comments: {article.comment_count}
+          </div>
         </div>
         <Comments article_id={article_id} />
       </Collapsible>

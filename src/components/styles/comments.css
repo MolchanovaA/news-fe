@@ -13,14 +13,14 @@
   background-color: var(--other-light);
 }
 
-.hide {
+.button {
   margin: 10px;
   padding: 10px;
   border: none;
   transition: all 500ms;
 }
 
-.hide:hover {
+.button:hover {
   cursor: pointer;
   background-color: var(--primary-color);
   color: var(--other-light);
@@ -31,6 +31,60 @@
   margin: 10px;
 }
 
+.section-comments-author {
+  text-align: start;
+  margin: 10px;
+}
+
 .section-comments p.section-comments-body {
+  margin-left: 40px;
   color: var(--main-background-color);
+}
+
+form.new-comment {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  background-color: aliceblue;
+  border: 1px solid var(--main-background-color);
+}
+form.new-comment label {
+  display: flex;
+  align-items: self-start;
+}
+
+form.new-comment .text-area {
+  max-height: 100px;
+  max-width: 250px;
+  padding: 5px;
+  margin: 10px;
+}
+
+form.new-comment .text-area {
+  height: 100px;
+}
+
+form.new-comment .button {
+  width: 150px;
+}
+
+.button:active {
+  background-color: blue;
+}
+.error {
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.356);
+  color: white;
+}
+
+.empty-field {
+  border: 1px solid yellow;
+  background-color: rgba(255, 247, 0, 0.356);
+  color: white;
+}
+.posting {
+  border: 1px solid green;
+  background-color: rgba(0, 255, 89, 0.356);
+  color: white;
 }
