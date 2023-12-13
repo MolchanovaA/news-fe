@@ -27,3 +27,7 @@ export const voteOnArticle = (id, votes) => {
 export const postComment = (id, body) => {
   return newsApi.post(`/articles/${id}/comments`, body);
 };
+
+export const deleteComment = (id) => {
+  return newsApi.delete(`/comments/${id}`);
+};
