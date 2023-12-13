@@ -25,9 +25,7 @@ const Comments = ({ article_id }) => {
     });
   }, [addComment]);
 
-  useEffect(() => {
-    console.log("from 2nd use E", commentsToArticle);
-  }, [commentsToArticle]);
+  useEffect(() => {}, [commentsToArticle]);
   if (isLoading) {
     return <section>..Comments are Loading..</section>;
   }
@@ -46,10 +44,12 @@ const Comments = ({ article_id }) => {
         <Form article_id={article_id} setAddComment={setAddComment} />
       </Collapsible>
       <ul className="comments-list">
-        {commentsToArticle.map((comment) => {
+        {commentsToArticle.map((comment, i) => {
           return (
-            <li key={comment.comment_id} className="comment">
-              <div className="section-comments-author">{comment.author}</div>
+            <li key={i} className="comment">
+              <div className="section-comments-author">
+                {comment.author} {comment.comment_id}
+              </div>
               <p className="section-comments-body"> {comment.body}</p>
 
               <div className="section-comments-votes">
