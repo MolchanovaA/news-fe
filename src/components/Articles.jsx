@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getArticles } from "../utils/apiRequests";
 
 import "./styles/articles.css";
+import ArticleHeader from "./ArticleHeader";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     getArticles().then((data) => {
       setArticles(data);
@@ -24,16 +25,7 @@ const Articles = () => {
       <p> View all articles in our page </p>
       <ul>
         {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <h2>{article.title}</h2>
-              <p className="votes">{article.votes}</p>
-              <Link
-                className="singleArticle"
-                to={`/articles/${article.article_id}`}
-              ></Link>
-            </li>
-          );
+          return <ArticleHeader key={article.article_id} article={article} />;
         })}
       </ul>
     </section>
