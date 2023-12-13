@@ -39,3 +39,31 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+p.votes-box {
+  width: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  transition: all 500ms;
+}
+
+.add,
+.votes,
+.minus {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.add:hover {
+  color: rgb(103, 244, 103);
+  transform: scale(1.5);
+}
+
+.minus:hover {
+  color: rgb(235, 127, 127);
+  transform: scale(1.5);
+}
