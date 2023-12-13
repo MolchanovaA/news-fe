@@ -18,7 +18,7 @@ const Collapsible = ({ children }) => {
     }
   };
   return (
-    <div onClick={setVisible}>
+    <div className="collaps" onClick={setVisible}>
       {isVisible || isCreate ? children : children[0]}
     </div>
   );

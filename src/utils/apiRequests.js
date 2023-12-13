@@ -18,6 +18,12 @@ export const getCommentsByArticleId = (id) => {
     .then(({ data }) => data.comments);
 };
 
+export const voteOnArticle = (id, votes) => {
+  return newsApi
+    .patch(`/articles/${id}`, { inc_votes: votes })
+    .then(({ data: { article } }) => article);
+};
+
 export const postComment = (id, body) => {
   return newsApi.post(`/articles/${id}/comments`, body);
 };
