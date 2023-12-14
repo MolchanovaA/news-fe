@@ -33,7 +33,7 @@ const Articles = () => {
     );
   return (
     <section className="all-articles">
-      <h1>Main {title}</h1>
+      <h1>{title.toUpperCase()}</h1>
       <p>
         {" "}
         View all{" "}
