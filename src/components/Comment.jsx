@@ -34,7 +34,7 @@ const Comment = ({ comment, userName }) => {
   };
 
   return (
-    <li className="comment">
+    <li className="comment" hidden={status === "success" ? true : false}>
       <div className="section-comments-author">
         {comment.author} {comment.comment_id}
       </div>
@@ -44,7 +44,7 @@ const Comment = ({ comment, userName }) => {
       </div>
       <div>{postingMSG.msg}</div>
       <div
-        className="button delete "
+        className="button delete"
         hidden={comment.author === userName ? false : true}
         onClick={commentDeleteHandler}
       >
