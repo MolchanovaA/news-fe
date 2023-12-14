@@ -11,7 +11,7 @@ const Header = () => {
       </Link>
       <Link>Topics</Link>
       <Link to="/articles">All Articles</Link>
-      <Link>Random Article</Link>
+      <Link>User Page</Link>
     </nav>
   );
 };

@@ -1,14 +1,35 @@
 import { useState, useEffect } from "react";
 import { postComment } from "../utils/apiRequests";
 
-const Form = ({ article_id, setAddComment }) => {
-  const [userName, setUserName] = useState("tickle122");
+const Form = ({ article_id, setCommentsToArticle, userName }) => {
   const [commentBody, setCommentBody] = useState("");
-  const [errorMSG, setErrorMSG] = useState("");
-  const [postingMSG, setPostingMSG] = useState("");
-  const [emptyMSG, setEmptyMSG] = useState("");
+  const [postingMSG, setPostingMSG] = useState({
+    status: false,
+    msg: "",
+    className: "",
+  });
+  const [status, setStatus] = useState("default");
 
-  useEffect(() => {}, [errorMSG, postingMSG, emptyMSG]);
+  const userAlerts = {
+    default: {
+      className: "",
+    },
+    error: {
+      status: false,
+      msg: "Ooops, something wrong.",
+      className: "error",
+    },
+    warning: {
+      status: false,
+      msg: "Comment field is empty",
+      className: "warning",
+    },
+    success: { status: true, msg: "posting ...", className: "success" },
+  };
+
+  useEffect(() => {
+    setPostingMSG(userAlerts[status]);
+  }, [status]);
 
   const newCommentHandler = (e) => {
     e.preventDefault();
@@ -18,34 +39,25 @@ const Form = ({ article_id, setAddComment }) => {
     };
 
     if (userName && commentBody) {
-      setPostingMSG("posting comment");
+      setStatus("success");
       postComment(article_id, postBody)
         .then(({ data: { posted_comment } }) => {
-          setAddComment(posted_comment);
+          setCommentsToArticle((currentComments) => {
+            return [posted_comment, ...currentComments];
+          });
           setCommentBody("");
         })
         .catch((err) => {
-          setErrorMSG("Ooops, something wrong.");
+          setStatus("error");
         });
     } else {
-      setEmptyMSG("Comment field is empty");
+      setStatus("warning");
     }
   };
 
   const commentBodyHandler = (e) => {
     setCommentBody(e.target.value);
   };
-
-  if (errorMSG || emptyMSG || postingMSG) {
-    let alert = errorMSG || emptyMSG || postingMSG;
-    const styles = {
-      ["Ooops, something wrong."]: "error",
-      ["Comment field is empty"]: "empty-field",
-      ["posting comment"]: "posting",
-    };
-
-    return <section className={styles[alert]}>{alert}</section>;
-  }
 
   return (
     <>
@@ -65,6 +77,7 @@ const Form = ({ article_id, setAddComment }) => {
         <button tabIndex={"0"} className="button">
           Add
         </button>
+        <section className={postingMSG.className}>{postingMSG.msg}</section>
       </form>
     </>
   );
