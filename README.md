@@ -1,8 +1,16 @@
-# React + Vite
+Welcome to New's Project!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. This project has been deployed on:
+   gitHub: https://github.com/MolchanovaA/news-api
+   netlify:
 
-Currently, two official plugins are available:
+2. Backend part has been deployed:
+   gitHub:
+   elephantSQL:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a mini-guide that helps you to navigate this page.
+You will start from Home page.
+Then you can check all topics we have by clicking on 'TOPICS' item in header.
+Also you can select article by Topic and sort them.  
+General view of all topics (articles) is available by clicking on 'All Articles'.
+You can also choose an article, vote on it, add or delete your comment.
