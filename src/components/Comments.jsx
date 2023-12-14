@@ -13,6 +13,8 @@ const Comments = ({ article_id }) => {
   const [commentsToArticle, setCommentsToArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [deletedId, setDeletedId] = useState([""]);
+
   useEffect(() => {
     getCommentsByArticleId(article_id).then((data) => {
       setCommentsToArticle(data);
@@ -43,7 +45,16 @@ const Comments = ({ article_id }) => {
       </Collapsible>
       <ul className="comments-list">
         {commentsToArticle.map((comment, i) => {
-          return <Comment key={i} comment={comment} userName={userName} />;
+          if (!deletedId.includes(comment.comment_id)) {
+            return (
+              <Comment
+                key={i}
+                comment={comment}
+                userName={userName}
+                setDeletedId={setDeletedId}
+              />
+            );
+          }
         })}
       </ul>
     </section>

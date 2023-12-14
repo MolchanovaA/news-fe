@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteComment } from "../utils/apiRequests";
 
-const Comment = ({ comment, userName }) => {
+const Comment = ({ comment, userName, setDeletedId }) => {
   const [postingMSG, setPostingMSG] = useState({
     status: false,
     msg: "",
@@ -28,6 +28,7 @@ const Comment = ({ comment, userName }) => {
 
   const commentDeleteHandler = () => {
     setStatus("success");
+    setDeletedId((current) => [...current, comment.comment_id]);
     deleteComment(comment.comment_id).catch(() => {
       setStatus("error");
     });
