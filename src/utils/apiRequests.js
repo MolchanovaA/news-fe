@@ -4,8 +4,14 @@ const newsApi = axios.create({
   baseURL: "https://molchanova-nc-news.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return newsApi.get("/articles").then(({ data }) => data.articles);
+export const getAll = (searchAll) => {
+  return newsApi.get(`/${searchAll}`).then(({ data }) => data);
+};
+
+export const getAllQuery = (searchAll) => {
+  return newsApi.get(`/${searchAll}`).then(({ data }) => {
+    console.log(data, "QUERY");
+  });
 };
 
 export const getArticleById = (id) => {
