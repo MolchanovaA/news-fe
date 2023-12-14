@@ -1,18 +1,31 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getArticles } from "../utils/apiRequests";
+import { getAll, getAllQuery } from "../utils/apiRequests";
+
+import { useSearchParams } from "react-router-dom";
 
 import "./styles/articles.css";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [title, setTitle] = useState("");
+
+  const [searchParams, setSearchParams] = useSearchParams({ topic: "" });
+
   useEffect(() => {
-    getArticles().then((data) => {
-      setArticles(data);
+    let query = "articles";
+    setTitle(query);
+    if (searchParams.get("topic")) {
+      setTitle(searchParams.get("topic"));
+      query += `?topic=${searchParams.get("topic")}`;
+    }
+
+    getAll(query).then((data) => {
+      setArticles(data["articles"]);
       setIsLoading(false);
     });
-  }, []);
+  }, [searchParams.get("topic")]);
 
   if (isLoading)
     return (
@@ -20,8 +33,15 @@ const Articles = () => {
     );
   return (
     <section className="all-articles">
-      <h1>Main Topics</h1>
-      <p> View all articles in our page </p>
+      <h1>{title.toUpperCase()}</h1>
+      <p>
+        {" "}
+        View all{" "}
+        {searchParams.get("topic")
+          ? `${searchParams.get("topic")} related`
+          : ``}{" "}
+        articles in our page{" "}
+      </p>
       <ul>
         {articles.map((article) => {
           return (
