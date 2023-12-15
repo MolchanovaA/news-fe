@@ -1,0 +1,17 @@
+footer.box {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+}
+
+.box a {
+  text-decoration: none;
+  color: var(--other-light);
+  transition: all 500ms;
+}
+
+.box a:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}

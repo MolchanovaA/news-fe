@@ -9,6 +9,7 @@
 body {
   padding: 10px;
   background-color: var(--main-background-color);
+  position: relative;
 }
 body h1,
 body h2 {
@@ -28,8 +29,14 @@ body:not(h1) {
 .main-section {
   padding: 10px;
   margin: 100px 0;
+  text-align: center;
 }
-section p:not(.votes) {
+
+.main-section h1 {
+  color: var(--other-light);
+}
+
+section p:not(.votes, .topic-description) {
   color: var(--other-light);
 }
 .box {
@@ -40,4 +47,10 @@ section p:not(.votes) {
   justify-content: space-around;
   align-items: center;
   color: var(--other-light);
+}
+
+.all-articles,
+.section-comments,
+.article {
+  margin-bottom: 50px;
 }

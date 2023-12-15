@@ -49,6 +49,7 @@ p.votes-box {
 
 .rating {
   transition: all 500ms;
+  cursor: pointer;
 }
 
 .add,
