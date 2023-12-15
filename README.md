@@ -5,7 +5,7 @@ https://molchanova-news.netlify.app/
 
 1. This project has been deployed on:
    gitHub: https://github.com/MolchanovaA/news-api
-   netlify:
+   netlify: https://molchanova-news.netlify.app/
 
 2. Backend part has been deployed:
    gitHub:
