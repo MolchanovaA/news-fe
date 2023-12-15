@@ -1,5 +1,8 @@
 Welcome to New's Project!
 
+Deployed on:
+https://molchanova-news.netlify.app/
+
 1. This project has been deployed on:
    gitHub: https://github.com/MolchanovaA/news-api
    netlify:
@@ -14,3 +17,5 @@ Then you can check all topics we have by clicking on 'TOPICS' item in header.
 Also you can select article by Topic and sort them.  
 General view of all topics (articles) is available by clicking on 'All Articles'.
 You can also choose an article, vote on it, add or delete your comment.
+
+min node version - v20.8
