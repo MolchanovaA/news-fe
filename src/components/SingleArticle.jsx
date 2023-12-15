@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getArticleById, voteOnArticle } from "../utils/apiRequests";
 
 import Collapsible from "./Collapsible";
 import Comments from "./Comments";
+import ErrorPage from "./ErrorPage";
 
 import "./styles/singleArticle.css";
 
@@ -11,10 +12,12 @@ const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentVote, setCurrentVote] = useState(article.votes);
+  const [errorPage, setErrorPage] = useState({ msg: "", code: "" });
 
   const [response, setResponse] = useState("");
 
   const params = useParams();
+
   const { article_id } = params;
 
   const [isVoted, setIsVoted] = useState(false);
@@ -41,12 +44,16 @@ const SingleArticle = () => {
   };
 
   useEffect(() => {
-    getArticleById(article_id).then((data) => {
-      const dateCreated = data.created_at.split("T");
-      data.created_at = dateCreated[0];
-      setArticle(data);
-      setCurrentVote(data.votes);
-    });
+    getArticleById(article_id)
+      .then((data) => {
+        const dateCreated = data.created_at.split("T");
+        data.created_at = dateCreated[0];
+        setArticle(data);
+        setCurrentVote(data.votes);
+      })
+      .catch(({ response }) => {
+        setErrorPage({ msg: response.data.msg, code: response.status });
+      });
 
     setIsLoading(false);
   }, []);
@@ -55,6 +62,10 @@ const SingleArticle = () => {
     return (
       <section className="all-articles"> .. Article is loading .. </section>
     );
+
+  if (errorPage.code) {
+    return <ErrorPage msg={errorPage.msg} code={errorPage.code} />;
+  }
   return (
     <section className="article">
       <h2>{article.title}</h2>

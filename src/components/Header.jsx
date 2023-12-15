@@ -17,7 +17,6 @@ const Header = () => {
       <Link to="/articles" onClick={update}>
         All Articles
       </Link>
-      <Link>User Page</Link>
     </nav>
   );
 };

@@ -27,7 +27,7 @@ const Topics = () => {
           return (
             <li key={i}>
               <h2>{topic.slug}</h2>
-              <p>{topic.description}</p>
+              <p className="topic-description">{topic.description}</p>
               <Link
                 className="singleArticle"
                 to={`/articles?topic=${topic.slug}`}

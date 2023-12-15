@@ -26,3 +26,12 @@
   bottom: 0;
   right: 0;
 }
+
+.sortingQueries {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sortingQueries select {
+  margin: 10px;
+}

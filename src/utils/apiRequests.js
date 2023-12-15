@@ -12,7 +12,9 @@ export const getAll = (topic) => {
 };
 
 export const getArticleById = (id) => {
-  return newsApi.get(`/articles/${id}`).then(({ data }) => data.article);
+  return newsApi.get(`/articles/${id}`).then(({ data }) => {
+    return data.article;
+  });
 };
 
 export const getCommentsByArticleId = (id) => {
